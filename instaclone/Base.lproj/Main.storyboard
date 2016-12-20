@@ -271,7 +271,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="247"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nkw-wV-6pZ" id="FYm-in-a2H">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="8vO-M4-BI8">
@@ -411,7 +411,7 @@
         <!--Add PostVC-->
         <scene sceneID="gzs-Tr-zKY">
             <objects>
-                <viewController id="128-ec-pvV" customClass="AddPostVC" customModule="instaclone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="128-ec-pvV" customClass="AddPostVC" customModule="instaclone" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="za8-yd-gZ0"/>
                         <viewControllerLayoutGuide type="bottom" id="AtT-4l-lZ7"/>
@@ -426,11 +426,15 @@
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXf-lw-VTp">
                                         <rect key="frame" x="0.0" y="19" width="320" height="549"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="placeholderpicture" translatesAutoresizingMaskIntoConstraints="NO" id="aKC-uN-zOi">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="placeholderpicture" translatesAutoresizingMaskIntoConstraints="NO" id="aKC-uN-zOi">
                                                 <rect key="frame" x="8" y="149" width="304" height="251"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="251" id="CqG-pI-Cnw"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Wm4-Ie-2vN" appends="YES" id="S0S-Ds-aJq"/>
+                                                </connections>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ql9-xT-S2l">
                                                 <rect key="frame" x="12" y="22" width="42" height="19"/>
@@ -458,7 +462,7 @@
                                                     <color key="titleColor" red="0.95140141300000003" green="1" blue="0.99985371759999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="signinPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Vf-SO-cIF"/>
+                                                    <action selector="postTapped:" destination="128-ec-pvV" eventType="touchUpInside" id="Qeo-gK-u5c"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write a caption..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z10-SZ-q0z">
@@ -507,10 +511,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="captionField" destination="Z10-SZ-q0z" id="Nux-0N-7yH"/>
+                        <outlet property="picToPost" destination="aKC-uN-zOi" id="0Wi-YG-iH3"/>
                         <outlet property="popOverView" destination="GXf-lw-VTp" id="T4M-TO-7BI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHf-7w-rzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Wm4-Ie-2vN">
+                    <connections>
+                        <action selector="imageTapped:" destination="128-ec-pvV" id="GVZ-fn-Wk5"/>
+                        <outlet property="delegate" destination="aKC-uN-zOi" id="ZnJ-9d-VI2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1688" y="22"/>
         </scene>

@@ -16,12 +16,16 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var posts = [Post]()
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         self.tableView.estimatedRowHeight = 80.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        
+    
         changeStatusBarColor()
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
@@ -84,7 +88,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-
+    
  
     
 }

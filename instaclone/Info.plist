@@ -65,5 +65,7 @@
 	</array>
 	<key>DATABASE_URL</key>
 	<string>https://coredev-instaclone-d74f6.firebaseio.com/</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need to access images to upload</string>
 </dict>
 </plist>
