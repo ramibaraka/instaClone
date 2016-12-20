@@ -1,0 +1,6 @@
+framework module Pods_instaclone {
+  umbrella header "Pods-instaclone-umbrella.h"
+
+  export *
+  module * { export * }
+}
