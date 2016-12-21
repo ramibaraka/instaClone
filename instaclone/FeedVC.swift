@@ -32,6 +32,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                self.posts.removeAll()
                 for snap in snapshot {
                     print("SNAP \(snap)")
                     if let postDict = snap.value as? Dictionary<String, AnyObject>{
@@ -41,6 +42,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             }
+            self.posts.reverse()
             self.tableView.reloadData()
         })
         
@@ -91,11 +93,10 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             if let img = FeedVC.imageCache.object(forKey: post.imageURL as NSString) {
                 cell.configureCell(post: post, img: img)
-                return cell
             } else {
                 cell.configureCell(post: post)
-                return cell
             }
+            return cell
         } else {
             return PostCell()
         }

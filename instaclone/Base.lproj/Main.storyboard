@@ -267,7 +267,7 @@
                                 <color key="backgroundColor" red="0.10839342945384611" green="0.10839342945384611" blue="0.10839342945384611" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="247" id="nkw-wV-6pZ" customClass="PostCell" customModule="instaclone" customModuleProvider="target">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="247" id="nkw-wV-6pZ" customClass="PostCell" customModule="instaclone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="247"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nkw-wV-6pZ" id="FYm-in-a2H">
@@ -302,7 +302,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="E5Z-OI-s52">
-                                                    <rect key="frame" x="70" y="27" width="242" height="203.5"/>
+                                                    <rect key="frame" x="70" y="27" width="242" height="204"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="This label describes the caption of the image but sometimes it gets a bit longer to add" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pc5-o3-zU2">
                                                             <rect key="frame" x="0.0" y="0.0" width="242" height="41"/>
@@ -311,34 +311,34 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Screen Shot 2016-12-14 at 15.38.48" translatesAutoresizingMaskIntoConstraints="NO" id="T4G-Md-BqD">
-                                                            <rect key="frame" x="0.0" y="53" width="234" height="121.5"/>
+                                                            <rect key="frame" x="0.0" y="53" width="234" height="122"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="176" id="w2c-9I-wQ2"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="xdn-l0-O2J">
-                                                            <rect key="frame" x="0.0" y="186.5" width="242" height="17"/>
+                                                            <rect key="frame" x="0.0" y="187" width="242" height="17"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBN-M0-Drf">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="40.5" height="17"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="cBN-M0-Drf">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="17"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VER-fg-LAT">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="23" height="17"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="17"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYq-wf-Hh6">
-                                                                            <rect key="frame" x="23" y="0.0" width="17.5" height="17"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F35-Zz-bvR">
-                                                                    <rect key="frame" x="212.5" y="0.0" width="29.5" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1og-8O-By1">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="242" height="17"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -375,6 +375,7 @@
                                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="caption" destination="pc5-o3-zU2" id="KaS-u3-YDV"/>
+                                            <outlet property="likeImg" destination="1og-8O-By1" id="Els-fy-dEb"/>
                                             <outlet property="likesLbl" destination="CYq-wf-Hh6" id="PDP-5r-lV5"/>
                                             <outlet property="postIMG" destination="T4G-Md-BqD" id="g0S-4d-ccZ"/>
                                             <outlet property="profileIMG" destination="8vO-M4-BI8" id="4o5-0T-eQY"/>
