@@ -24,6 +24,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         self.tableView.estimatedRowHeight = 80.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        NotificationCenter.default.addObserver(self, selector: #selector(FeedVC.loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         
     
@@ -47,6 +48,11 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func loadList(notification: NSNotification){
+        posts.removeAll()
+        self.tableView.reloadData()
     }
     
     @IBAction func signOutPressed(_ sender: Any) {
