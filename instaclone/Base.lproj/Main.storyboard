@@ -310,7 +310,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Screen Shot 2016-12-14 at 15.38.48" translatesAutoresizingMaskIntoConstraints="NO" id="T4G-Md-BqD">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="T4G-Md-BqD">
                                                             <rect key="frame" x="0.0" y="53" width="234" height="122"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="176" id="w2c-9I-wQ2"/>
@@ -529,7 +529,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2016-12-14 at 15.38.48" width="765" height="566"/>
         <image name="lock" width="24" height="30"/>
         <image name="logo" width="402" height="355"/>
         <image name="placeholderpicture" width="402" height="355"/>

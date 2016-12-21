@@ -27,7 +27,6 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(FeedVC.loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         
-    
         changeStatusBarColor()
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in

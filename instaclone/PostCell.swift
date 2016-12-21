@@ -67,13 +67,13 @@ class PostCell: UITableViewCell {
     func likeTapped(sender: UITapGestureRecognizer){
         likesRef.observeSingleEvent(of: .value, with:{ (snapshot) in
             if let _ = snapshot.value as? NSNull {
+                self.likesRef.setValue(true)
                 self.likeImg.text = "Unlike"
                 self.post.adjustLikes(addLike: true)
-                self.likesRef.setValue(true)
             } else {
+                self.likesRef.removeValue()
                 self.likeImg.text = "Like"
                 self.post.adjustLikes(addLike: false)
-                self.likesRef.removeValue()
             }
         })
     }
