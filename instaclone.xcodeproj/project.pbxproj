@@ -97,6 +97,7 @@
 		41E1A55C1E01892300D09CFF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				413842451E06D2D6000AC467 /* PostCell.swift */,
 				413EBA5C1E0580F3008AAD01 /* CustomModal.swift */,
 			);
 			name = View;
@@ -135,7 +136,6 @@
 				41E6C73C1E018522008768AE /* LaunchScreen.storyboard */,
 				41E6C73F1E018522008768AE /* Info.plist */,
 				41E1A55D1E0189E300D09CFF /* GoogleService-Info.plist */,
-				413842451E06D2D6000AC467 /* PostCell.swift */,
 			);
 			path = instaclone;
 			sourceTree = "<group>";
