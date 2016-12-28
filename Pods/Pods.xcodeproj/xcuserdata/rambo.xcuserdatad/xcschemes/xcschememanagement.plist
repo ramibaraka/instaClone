@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-instaclone.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,17 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38B7E5F1D0D81336060B5678CFE07F10</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95E5674DB1AA96EFE8F3CA40EC47B257</key>
+		<key>550D93EFE5B4EEEB582E8CA93F7E66E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>785ACBB0D2C14735641BA33BF9E44219</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4944FEC314D1A66588651D006273ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

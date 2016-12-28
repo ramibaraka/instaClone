@@ -54,14 +54,16 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
+  - Kingfisher (3.2.2)
   - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
-  - FBSDKLoginKit
+  - FBSDKLoginKit (~> 4.18.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - Kingfisher (~> 3.0)
   - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
@@ -79,8 +81,9 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  Kingfisher: 821466474ad7ffc375a4aecadfa05068cfed67b3
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 88e78bc15d759541447858f1229998fc69405fb6
+PODFILE CHECKSUM: 3f6952546b85a58af9846c9d033b9eca97b72bc6
 
 COCOAPODS: 1.1.1

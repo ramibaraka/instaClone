@@ -20,9 +20,7 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeStatusBarColor()
-        
-        
-        
+     
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,10 +40,10 @@ class LoginVC: UIViewController {
             
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
-                    print("EMAIL SIGN IN SUCCESS")
                     if let user = user {
                         let userData = ["provider": user.providerID]
                         self.completeSignIn(id: user.uid, userData: userData)
+                        
                     }
                 } else {
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -107,11 +105,17 @@ class LoginVC: UIViewController {
     
     func completeSignIn(id: String, userData: Dictionary<String, String>){
         DataService.ds.createFireBaseDBUser(uid: id, userData: userData)
-        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
-        print("UID SAVED TO KEYCHAIN\(keychainResult.description)")
-        performSegue(withIdentifier: "goToFeed", sender: nil)
-    }
+        KeychainWrapper.standard.set(id, forKey: KEY_UID)
 
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+        } else {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            performSegue(withIdentifier: "goToConfig", sender: nil)
+        }
+
+    }
 
 }
 

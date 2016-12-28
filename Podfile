@@ -6,8 +6,9 @@ target 'instaclone' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-  pod 'FBSDKLoginKit'
+  pod 'FBSDKLoginKit', '~> 4.18.0'
   pod 'SwiftKeychainWrapper'
+  pod 'Kingfisher', '~> 3.0'
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 

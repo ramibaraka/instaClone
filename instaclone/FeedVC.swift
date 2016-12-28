@@ -16,24 +16,24 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     var posts = [Post]()
+    var posterImageRef: FIRDatabaseReference!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        self.tableView.estimatedRowHeight = 80.0
+        self.tableView.estimatedRowHeight = 180.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(FeedVC.loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        
-        
+
         changeStatusBarColor()
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 self.posts.removeAll()
                 for snap in snapshot {
-                    print("SNAP \(snap)")
+                    //print("SNAP \(snap)")
                     if let postDict = snap.value as? Dictionary<String, AnyObject>{
                         let key = snap.key
                         let post = Post(postID: key, postData: postDict)
@@ -47,6 +47,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -59,12 +60,12 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBAction func signOutPressed(_ sender: Any) {
         let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         try! FIRAuth.auth()?.signOut()
-        
-        
-        if removeSuccessful {
-            dismiss(animated: true, completion: nil)
+              
+            let presentingViewController = self.presentingViewController
+            self.dismiss(animated: false, completion: {
+                presentingViewController!.dismiss(animated: true, completion: {})
+            })
             
-        }
     }
     
     func changeStatusBarColor(){
@@ -88,20 +89,24 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = self.posts[indexPath.row]
         
+        posterImageRef = DataService.ds.REF_USERS.child("\(post.posterID)").child("imageURL")
+        
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
-            
-            if let img = FeedVC.imageCache.object(forKey: post.imageURL as NSString) {
-                cell.configureCell(post: post, img: img)
-            } else {
-                cell.configureCell(post: post)
-            }
+            cell.tag = indexPath.row
+
+            let url = URL(string: post.posterImgUrl)
+            cell.profileIMG.kf.setImage(with: url)
+
+            cell.configureCell(post: post)
+            cell.setNeedsLayout()
             return cell
         } else {
             return PostCell()
         }
     }
     
-    
+
  
     
 }

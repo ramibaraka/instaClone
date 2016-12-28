@@ -9,3 +9,5 @@
 import UIKit
 
 let KEY_UID = "uid"
+let FIRST_LOGIN = "yes"
+let PROFILE_IMG_URL = "piu"

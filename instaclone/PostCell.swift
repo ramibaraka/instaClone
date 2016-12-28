@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
+import Kingfisher
+
 
 class PostCell: UITableViewCell {
     
@@ -20,6 +23,8 @@ class PostCell: UITableViewCell {
     
     var post: Post!
     var likesRef: FIRDatabaseReference!
+    var posterImageRef: FIRDatabaseReference!
+    var userNameRef: FIRDatabaseReference!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,33 +33,38 @@ class PostCell: UITableViewCell {
         tap.numberOfTapsRequired = 1
         likeImg.addGestureRecognizer(tap)
         likeImg.isUserInteractionEnabled = true
+        profileIMG.layer.cornerRadius = 7
+        profileIMG.clipsToBounds = true
         
     }
 
-    func configureCell(post: Post, img: UIImage? = nil){
+    func configureCell(post: Post){
+        self.postIMG.image = UIImage(named: "logo")
+        //self.profileIMG.image = UIImage(named: "logo")
         self.post = post
         self.caption.text = post.caption
         self.likesLbl.text = "\(post.likes)"
         
-        likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postID)
         
-        if img != nil {
-            self.postIMG.image = img
-        } else {
-                let ref = FIRStorage.storage().reference(forURL: post.imageURL)
-                ref.data(withMaxSize: 2 * 1024 * 1024, completion:{(data, error) in
-                    if error != nil {
-                        print("UNABLE TO DOWNLOAD IMAGE FROM FIREBASE STORAGE")
-                    } else {
-                        if let imageData = data {
-                            if let img = UIImage(data: imageData){
-                                self.postIMG.image = img
-                                FeedVC.imageCache.setObject(img, forKey: post.imageURL as NSString)
-                            }
-                        }
-                    }
-                })
+        likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postID)
+        userNameRef = DataService.ds.REF_USERS.child("\(post.posterID)").child("username")
+        
+        let url = URL(string: post.imageURL)
+        self.postIMG.kf.setImage(with: url,
+                                 placeholder: UIImage(named: "logo"),
+            options: [.transition(.fade(1))],
+            progressBlock: nil,
+            completionHandler: nil)
+        
+        userNameRef.observeSingleEvent(of: .value, with:{ (snapshot) in
+            if let username = snapshot.value as? NSString {
+                self.userNameLbl.text = username as String
+            } else {
+                //Handle fail
             }
+        })
+        
+        
         likesRef.observeSingleEvent(of: .value, with:{ (snapshot) in
             if let _ = snapshot.value as? NSNull {
                 self.likeImg.text = "Like"
@@ -62,6 +72,7 @@ class PostCell: UITableViewCell {
                 self.likeImg.text = "Unlike"
             }
         })
+    
     }
     
     func likeTapped(sender: UITapGestureRecognizer){
@@ -77,6 +88,8 @@ class PostCell: UITableViewCell {
             }
         })
     }
+    
+    
     
 
 }

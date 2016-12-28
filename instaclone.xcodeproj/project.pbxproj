@@ -12,6 +12,7 @@
 		413842461E06D2D6000AC467 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413842451E06D2D6000AC467 /* PostCell.swift */; };
 		413EBA5B1E057F3A008AAD01 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EBA5A1E057F3A008AAD01 /* AddPostVC.swift */; };
 		413EBA5D1E0580F3008AAD01 /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EBA5C1E0580F3008AAD01 /* CustomModal.swift */; };
+		415652FC1E0BEA5E0070C6BE /* UserConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415652FB1E0BEA5D0070C6BE /* UserConfigVC.swift */; };
 		41BF18E11E040644000456C8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF18E01E040644000456C8 /* Constants.swift */; };
 		41BF18E31E040A03000456C8 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF18E21E040A03000456C8 /* FeedVC.swift */; };
 		41E1A55E1E0189E300D09CFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41E1A55D1E0189E300D09CFF /* GoogleService-Info.plist */; };
@@ -30,6 +31,7 @@
 		413842451E06D2D6000AC467 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		413EBA5A1E057F3A008AAD01 /* AddPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
 		413EBA5C1E0580F3008AAD01 /* CustomModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModal.swift; sourceTree = "<group>"; };
+		415652FB1E0BEA5D0070C6BE /* UserConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConfigVC.swift; sourceTree = "<group>"; };
 		417DE24B1E0301E20072CCB4 /* instaclone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = instaclone.entitlements; sourceTree = "<group>"; };
 		41BF18E01E040644000456C8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		41BF18E21E040A03000456C8 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				41E6C7351E018522008768AE /* LoginVC.swift */,
 				41BF18E21E040A03000456C8 /* FeedVC.swift */,
 				413EBA5A1E057F3A008AAD01 /* AddPostVC.swift */,
+				415652FB1E0BEA5D0070C6BE /* UserConfigVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				413EBA5B1E057F3A008AAD01 /* AddPostVC.swift in Sources */,
 				41E6C7341E018522008768AE /* AppDelegate.swift in Sources */,
 				41011CDA1E093CD80092E4AE /* Post.swift in Sources */,
+				415652FC1E0BEA5E0070C6BE /* UserConfigVC.swift in Sources */,
 				41BF18E11E040644000456C8 /* Constants.swift in Sources */,
 				41011CD81E082AE50092E4AE /* DataService.swift in Sources */,
 			);
