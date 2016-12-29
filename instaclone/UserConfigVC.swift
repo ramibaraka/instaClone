@@ -42,9 +42,7 @@ class UserConfigVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             self.imageSet = true
             imagePicker.dismiss(animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Image issue", message: "Please try another photo", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.displayError(title: "Image issue", message: "Please try another image", okBtnTxt: "Ok")
             imagePicker.dismiss(animated: true, completion: nil)
             
         }
@@ -53,16 +51,12 @@ class UserConfigVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBAction func continueTapped(_ sender: Any) {
         
         guard let username = userNameField.text, username != "" else{
-            let alert = UIAlertController(title: "Username", message: "Please pick a username", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.displayError(title: "Username", message: "Please pick a username", okBtnTxt: "Ok")
             return
         }
         
         guard let img = profileIMG.image, self.imageSet == true else {
-            let alert = UIAlertController(title: "Image missing", message: "Please select profile photo", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.displayError(title: "Image missing", message: "Please select profile photo", okBtnTxt: "Ok")
             return
         }
         
@@ -73,9 +67,8 @@ class UserConfigVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             DataService.ds.REF_POST_PICS.child(imUid).put(imgData, metadata: metaData) {
                 (metaData, error) in
                 if error != nil {
-                    print("Profile image upload FAILED")
+                    self.displayError(title: "Image upload failed", message: "There was a problem with uploading the image. Please contact support", okBtnTxt: "Ok")
                 } else {
-                    print("Profile image uploaded successfuly")
                     let downloadURL = metaData?.downloadURL()?.absoluteString
                     if let url = downloadURL {
                         self.updateUserInFirebase(imgURL: url, username: username)
@@ -97,6 +90,12 @@ class UserConfigVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             firebasePost.updateChildValues(post)
             
         }
+    }
+    
+    func displayError(title: String, message:String, okBtnTxt:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: okBtnTxt, style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     

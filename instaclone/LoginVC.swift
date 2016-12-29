@@ -48,9 +48,8 @@ class LoginVC: UIViewController {
                 } else {
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                         if error != nil {
-                            print("USER CREATION FAILED WITH CODE \(error.debugDescription)")
+                            self.displayError(title: "Account creation failed error", message: "There was a problem with creating an account. Please contact support", okBtnTxt: "Ok")
                         } else {
-                            print("USER CREATION SUCCESS")
                             if let user = user {
                                 let userData = ["provider": user.providerID]
                                 self.completeSignIn(id: user.uid, userData: userData)
@@ -69,11 +68,10 @@ class LoginVC: UIViewController {
         let fbLogin = FBSDKLoginManager()
         fbLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
             if error != nil {
-                print("unable to login to facebok - \(error.debugDescription)")
+                self.displayError(title: "Facebook login failed", message: "There was a problem with the facebook login. Please contact support", okBtnTxt: "Ok")
             } else if result?.isCancelled == true {
                 print("user canceled")
             } else {
-                print("facebook authentication success")
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.fireBaseAuth(credential)
             }
@@ -84,9 +82,8 @@ class LoginVC: UIViewController {
     func fireBaseAuth(_ credential: FIRAuthCredential){
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error ) in
             if error != nil {
-                print("Unable to authenticate with FireBase -  \(error.debugDescription)")
+                self.displayError(title: "Authentication error", message: "There was a problem with the authentication. Please contact support", okBtnTxt: "Ok")
             } else {
-                print("Firebase authentication success")
                 if let user = user {
                     let userData = ["provider": credential.provider]
                     self.completeSignIn(id: user.uid, userData: userData)
@@ -115,6 +112,12 @@ class LoginVC: UIViewController {
             performSegue(withIdentifier: "goToConfig", sender: nil)
         }
 
+    }
+    
+    func displayError(title: String, message:String, okBtnTxt:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: okBtnTxt, style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
